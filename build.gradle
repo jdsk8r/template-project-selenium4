@@ -27,6 +27,7 @@ dependencies {
     implementation "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
     implementation "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
     implementation "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
+    implementation "org.seleniumhq.selenium:selenium-java:$seleniumVersion"
     implementation "io.cucumber:cucumber-core:$cucumberVersion"
     implementation "io.cucumber:cucumber-java:$cucumberVersion"
     implementation "io.cucumber:cucumber-java8:$cucumberVersion"
@@ -51,10 +52,26 @@ publishing {
     publications {
         maven(MavenPublication) {
             groupId = 'no.sanchezrolfsen.framework.examples'
-            artifactId= 'selenium4'
+            artifactId= 'selenium4Example'
             version = '1.0-SNAPSHOT'
 
             from components.java
+        }
+    }
+}
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'e2e', 'src/test/resources']
         }
     }
 }
