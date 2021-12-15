@@ -8,11 +8,10 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    mavenLocal()
 }
 ext {
     junit5Version = '5.8.2'
-    e2eFrameworkVersion = '1.0-SNAPSHOT'
+    e2eFrameworkVersion = '1.0'
     seleniumVersion = '4.1.0'
     cucumberVersion = '7.1.0'
     lombokVersion = '1.18.22'
