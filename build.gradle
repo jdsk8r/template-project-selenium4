@@ -47,17 +47,6 @@ test {
     useJUnitPlatform()
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'no.sanchezrolfsen.framework.examples'
-            artifactId= 'selenium4Example'
-            version = '1.0-SNAPSHOT'
-
-            from components.java
-        }
-    }
-}
 configurations {
     cucumberRuntime {
         extendsFrom testImplementation

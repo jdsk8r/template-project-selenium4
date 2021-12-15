@@ -21,7 +21,7 @@ public class ExpensesSteps implements En {
         });
         Then("^title textbox is on the left of amount text box$", () -> {
             newExpenseForm = new NewExpenseForm();
-            assertThat(newExpenseForm.isTitleToTheLeftOfAmount()).isFalse();
+            assertThat(newExpenseForm.isTitleToTheLeftOfAmount()).isTrue();
         });
     }
 }
