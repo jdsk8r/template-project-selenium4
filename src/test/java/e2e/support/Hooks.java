@@ -51,7 +51,7 @@ public class Hooks extends AbstractHooks {
         Browser.vanillaDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(15));
         log.info("Starting running tests");
         LogEntries logEntries = Browser.vanillaDriver().manage().logs().get(LogType.BROWSER);
-        if(logEntries != null) {
+        if (logEntries != null) {
             Browser.jsExecutor().executeScript("console.clear();");
         }
         runBeforeAll = false;
@@ -84,16 +84,16 @@ public class Hooks extends AbstractHooks {
     private void checkBrowserConsoleErrors() {
         LogEntries logEntries = Browser.vanillaDriver().manage().logs().get(LogType.BROWSER);
 
-        for(LogEntry logEntry : logEntries) {
-            if(logEntry.toString().contains("favicon.ico")) {
+        for (LogEntry logEntry : logEntries) {
+            if (logEntry.toString().contains("favicon.ico")) {
                 continue;
             }
-            if(logEntry.getLevel().equals(Level.SEVERE)){
+            if (logEntry.getLevel().equals(Level.SEVERE)) {
                 log.error("Console error: " + logEntry.getMessage());
             }
-            assertThat(logEntry.getLevel().equals(Level.SEVERE))
+            assertThat(logEntry.getLevel())
                     .withFailMessage("There is a browser console-error: %s", logEntry.getMessage())
-                    .isFalse();
+                    .isEqualTo(Level.SEVERE);
         }
     }
 

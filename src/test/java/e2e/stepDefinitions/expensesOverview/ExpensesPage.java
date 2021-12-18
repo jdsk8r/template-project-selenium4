@@ -11,8 +11,8 @@ public class ExpensesPage {
     @FindBy(css = "[cy-data-selector='add-new-expense']")
     WebElement addNewExpenseButton;
 
-    ExpensesPage(){
+    ExpensesPage() {
         driver = Browser.vanillaDriver();
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 }

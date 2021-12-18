@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
 import static org.openqa.selenium.support.locators.RelativeLocator.with;
 
 
@@ -20,12 +21,12 @@ public class NewExpenseForm {
     @FindBy(css = "[cy-data-selector='new-expense-date']")
     WebElement newExpenseDate;
 
-    public NewExpenseForm(){
+    public NewExpenseForm() {
         driver = Browser.vanillaDriver();
-        PageFactory.initElements(driver,this);
+        PageFactory.initElements(driver, this);
     }
 
-    boolean isTitleToTheLeftOfAmount(){
+    boolean isTitleToTheLeftOfAmount() {
         return driver.findElement(with(By.cssSelector("[cy-data-selector='new-expense-title']")).toLeftOf(By.cssSelector("[cy-data-selector='new-expense-amount']"))).isDisplayed();
     }
 }
