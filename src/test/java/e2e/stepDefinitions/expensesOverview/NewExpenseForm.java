@@ -20,6 +20,9 @@ public class NewExpenseForm {
     WebElement newExpenseAmount;
     @FindBy(css = "[cy-data-selector='new-expense-date']")
     WebElement newExpenseDate;
+    @FindBy(css = "[cy-data-selector='add-expense']")
+    WebElement addExpense;
+
 
     public NewExpenseForm() {
         driver = Browser.vanillaDriver();
@@ -28,5 +31,9 @@ public class NewExpenseForm {
 
     boolean isTitleToTheLeftOfAmount() {
         return driver.findElement(with(By.cssSelector("[cy-data-selector='new-expense-title']")).toLeftOf(By.cssSelector("[cy-data-selector='new-expense-amount']"))).isDisplayed();
+    }
+
+    boolean isDateBelowOfTitle() {
+        return driver.findElement(with(By.cssSelector("[cy-data-selector='new-expense-date']")).below(By.cssSelector("[cy-data-selector='new-expense-title']"))).isDisplayed();
     }
 }

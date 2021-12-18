@@ -15,4 +15,12 @@ public class ExpensesPage {
         driver = Browser.vanillaDriver();
         PageFactory.initElements(driver, this);
     }
+
+    boolean existExpense(String title) {
+        return driver.findElements(ExpenseItemComponent.SELECTOR).stream()
+                .map(ExpenseItemComponent::new)
+                .filter(ei -> ei.getDescription().equals(title))
+                .toList()
+                .size() > 0;
+    }
 }
