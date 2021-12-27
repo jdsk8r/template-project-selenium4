@@ -47,7 +47,9 @@ public class Hooks extends AbstractHooks {
             Browser.vanillaDriver().quit();
         }
         ));
-
+        /*
+          Here you can set up the default time out
+         */
         Browser.vanillaDriver().manage().timeouts().scriptTimeout(Duration.ofSeconds(15));
         log.info("Starting running tests");
         LogEntries logEntries = Browser.vanillaDriver().manage().logs().get(LogType.BROWSER);

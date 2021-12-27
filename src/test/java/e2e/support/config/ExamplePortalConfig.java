@@ -10,7 +10,10 @@ import java.time.format.DateTimeFormatter;
 
 @Slf4j
 public class ExamplePortalConfig implements Config {
-    private final String frontend_url = "https://expenses-react.sanchezrolfsen.no/";
+    /**
+     * set the frontend url to your site
+     */
+    private final String frontend_url = "https://test-site.com/";
 
     @Override
     public String getBaseUrl() {

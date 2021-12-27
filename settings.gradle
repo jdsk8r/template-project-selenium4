@@ -1,2 +1,3 @@
-rootProject.name = 'selenium-4-test-example'
+//set project name
+rootProject.name = 'template-project-selenium4'
 
