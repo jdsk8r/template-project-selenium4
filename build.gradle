@@ -10,11 +10,11 @@ repositories {
     mavenCentral()
 }
 ext {
-    junit5Version = '5.8.2'
-    e2eFrameworkVersion = '1.2.2'
-    seleniumVersion = '4.1.1'
-    cucumberVersion = '7.2.3'
-    lombokVersion = '1.18.22'
+    junit5Version = '5.9.0'
+    e2eFrameworkVersion = '1.2.3'
+    seleniumVersion = '4.5.0'
+    cucumberVersion = '7.8.1'
+    lombokVersion = '1.18.24'
 }
 dependencies {
     implementation "no.sanchezrolfsen.framework:selenium:$e2eFrameworkVersion"
@@ -38,9 +38,9 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.12.0'
     implementation 'commons-io:commons-io:2.11.0'
     implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
-    testImplementation 'org.junit.platform:junit-platform-runner:1.8.2'
-    testImplementation 'org.assertj:assertj-core:3.22.0'
-    testImplementation 'org.mockito:mockito-core:4.2.0'
+    testImplementation 'org.junit.platform:junit-platform-runner:1.9.0'
+    testImplementation 'org.assertj:assertj-core:3.23.1'
+    testImplementation 'org.mockito:mockito-core:4.8.0'
 }
 
 test {
