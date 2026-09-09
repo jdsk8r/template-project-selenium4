@@ -23,10 +23,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Slf4j
 public class Hooks extends AbstractHooks {
     @Before
-    public void beforeEach() {
-        if (runBeforeAll) {
-            beforeAll();
-        }
+    public void setUp() {
+        beforeEach();
     }
 
     @Override
